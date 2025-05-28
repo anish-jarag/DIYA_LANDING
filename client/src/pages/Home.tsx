@@ -265,30 +265,82 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Trust Indicators */}
-      <section className="bg-white py-12">
+      {/* Business Benefits Section */}
+      <section className="bg-white py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-8">
-            <p className="text-slate-600">Built for modern education with privacy and security in mind</p>
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold text-slate-900 mb-4">Why Choose DIYA?</h2>
+            <p className="text-xl text-slate-600">Delivering measurable value to students and educational institutions</p>
           </div>
           
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 items-center opacity-60">
-            <div className="text-center">
-              <Brain className="mx-auto text-3xl text-slate-400 mb-2" />
-              <p className="text-sm font-medium text-slate-600">AI-Powered Learning</p>
-            </div>
-            <div className="text-center">
-              <Award className="mx-auto text-3xl text-slate-400 mb-2" />
-              <p className="text-sm font-medium text-slate-600">Secure Testing</p>
-            </div>
-            <div className="text-center">
-              <ShieldCheck className="mx-auto text-3xl text-slate-400 mb-2" />
-              <p className="text-sm font-medium text-slate-600">Privacy Protected</p>
-            </div>
-            <div className="text-center">
-              <Globe className="mx-auto text-3xl text-slate-400 mb-2" />
-              <p className="text-sm font-medium text-slate-600">Multilingual Support</p>
-            </div>
+          <div className="grid md:grid-cols-2 gap-12">
+            {/* Student Benefits */}
+            <motion.div 
+              className="bg-gradient-to-br from-blue-50 to-blue-100 rounded-2xl p-8"
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.6 }}
+              viewport={{ once: true }}
+            >
+              <div className="flex items-center mb-6">
+                <div className="w-12 h-12 bg-blue-600 rounded-full flex items-center justify-center mr-4">
+                  <GraduationCap className="text-white" size={24} />
+                </div>
+                <h3 className="text-2xl font-bold text-blue-800">Student Benefits</h3>
+              </div>
+              <ul className="space-y-4 text-blue-700">
+                <li className="flex items-start">
+                  <Check className="text-blue-600 mr-3 mt-1 flex-shrink-0" size={16} />
+                  <span><strong>Fair Testing Environment:</strong> Unique question sets ensure every student has an equal opportunity to demonstrate their knowledge</span>
+                </li>
+                <li className="flex items-start">
+                  <Check className="text-blue-600 mr-3 mt-1 flex-shrink-0" size={16} />
+                  <span><strong>Instant Performance Insights:</strong> Detailed analytics help identify strengths and improvement areas immediately</span>
+                </li>
+                <li className="flex items-start">
+                  <Check className="text-blue-600 mr-3 mt-1 flex-shrink-0" size={16} />
+                  <span><strong>Language Comfort:</strong> Choose between English and Marathi for comfortable learning experience</span>
+                </li>
+                <li className="flex items-start">
+                  <Check className="text-blue-600 mr-3 mt-1 flex-shrink-0" size={16} />
+                  <span><strong>Progress Motivation:</strong> Track improvement over time and compare with top performers</span>
+                </li>
+              </ul>
+            </motion.div>
+
+            {/* Institute Benefits */}
+            <motion.div 
+              className="bg-gradient-to-br from-green-50 to-green-100 rounded-2xl p-8"
+              initial={{ opacity: 0, x: 30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.6 }}
+              viewport={{ once: true }}
+            >
+              <div className="flex items-center mb-6">
+                <div className="w-12 h-12 bg-green-600 rounded-full flex items-center justify-center mr-4">
+                  <University className="text-white" size={24} />
+                </div>
+                <h3 className="text-2xl font-bold text-green-800">Institute Benefits</h3>
+              </div>
+              <ul className="space-y-4 text-green-700">
+                <li className="flex items-start">
+                  <Check className="text-green-600 mr-3 mt-1 flex-shrink-0" size={16} />
+                  <span><strong>Zero Cheating Incidents:</strong> Advanced monitoring eliminates academic dishonesty and maintains institutional reputation</span>
+                </li>
+                <li className="flex items-start">
+                  <Check className="text-green-600 mr-3 mt-1 flex-shrink-0" size={16} />
+                  <span><strong>Comprehensive Reports:</strong> Class-wise and student-wise analytics help teachers focus on areas needing attention</span>
+                </li>
+                <li className="flex items-start">
+                  <Check className="text-green-600 mr-3 mt-1 flex-shrink-0" size={16} />
+                  <span><strong>Easy Content Management:</strong> Bulk upload capabilities save time and streamline exam preparation</span>
+                </li>
+                <li className="flex items-start">
+                  <Check className="text-green-600 mr-3 mt-1 flex-shrink-0" size={16} />
+                  <span><strong>Competitive Rankings:</strong> Institute performance tracking motivates excellence and attracts more students</span>
+                </li>
+              </ul>
+            </motion.div>
           </div>
         </div>
       </section>
@@ -509,15 +561,15 @@ export default function Home() {
                 featured: true
               },
               {
-                title: "Institute Management",
-                description: "Student-wise and class-wise reports with institute ranking system for schools",
-                icon: "🏫",
+                title: "Real-Time Monitoring",
+                description: "Live exam supervision with instant alerts for suspicious activities during tests",
+                icon: "👁️",
                 featured: false
               },
               {
-                title: "Bulk Content Upload",
-                description: "Easy content management with Excel/JSON upload support for multiple languages",
-                icon: "📤",
+                title: "Custom Content Library",
+                description: "Create institute-specific video lectures and notes accessible only to your students",
+                icon: "📚",
                 featured: false
               },
               {
