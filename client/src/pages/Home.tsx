@@ -1,19 +1,19 @@
-import { useState } from 'react';
-import { motion } from 'framer-motion';
-import { useMutation } from '@tanstack/react-query';
-import { useForm } from 'react-hook-form';
-import { zodResolver } from '@hookform/resolvers/zod';
-import { 
-  GraduationCap, 
-  Brain, 
-  Globe, 
-  Shield, 
-  BarChart3, 
-  Play, 
-  Check, 
-  ShieldCheck, 
-  Phone, 
-  Mail, 
+import { useState } from "react";
+import { motion } from "framer-motion";
+import { useMutation } from "@tanstack/react-query";
+import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+import {
+  GraduationCap,
+  Brain,
+  Globe,
+  Shield,
+  BarChart3,
+  Play,
+  Check,
+  ShieldCheck,
+  Phone,
+  Mail,
   Star,
   Menu,
   X,
@@ -25,20 +25,33 @@ import {
   Twitter,
   Linkedin,
   Youtube,
-  Timer
-} from 'lucide-react';
+  Timer,
+} from "lucide-react";
 
-import { Button } from '@/components/ui/button';
-import { Card, CardContent } from '@/components/ui/card';
-import { Input } from '@/components/ui/input';
-import { Textarea } from '@/components/ui/textarea';
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
-import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '@/components/ui/form';
-import { useToast } from '@/hooks/use-toast';
-import { TestimonialCarousel } from '@/components/ui/testimonial-carousel';
-import { SmoothScrollLink } from '@/components/ui/smooth-scroll-link';
-import { apiRequest } from '@/lib/queryClient';
-import { insertContactSchema, insertNewsletterSchema } from '@shared/schema';
+import { Button } from "@/components/ui/button";
+import { Card, CardContent } from "@/components/ui/card";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
+import {
+  Form,
+  FormControl,
+  FormField,
+  FormItem,
+  FormLabel,
+  FormMessage,
+} from "@/components/ui/form";
+import { useToast } from "@/hooks/use-toast";
+import { TestimonialCarousel } from "@/components/ui/testimonial-carousel";
+import { SmoothScrollLink } from "@/components/ui/smooth-scroll-link";
+import { apiRequest } from "@/lib/queryClient";
+import { insertContactSchema, insertNewsletterSchema } from "@shared/schema";
 
 export default function Home() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -48,13 +61,13 @@ export default function Home() {
   const contactForm = useForm({
     resolver: zodResolver(insertContactSchema),
     defaultValues: {
-      firstName: '',
-      lastName: '',
-      email: '',
-      school: '',
-      role: '',
-      studentCount: '',
-      message: '',
+      firstName: "",
+      lastName: "",
+      email: "",
+      school: "",
+      role: "",
+      studentCount: "",
+      message: "",
     },
   });
 
@@ -62,27 +75,29 @@ export default function Home() {
   const newsletterForm = useForm({
     resolver: zodResolver(insertNewsletterSchema),
     defaultValues: {
-      email: '',
+      email: "",
     },
   });
 
   // Contact mutation
   const contactMutation = useMutation({
     mutationFn: async (data: any) => {
-      const response = await apiRequest('POST', '/api/contact', data);
+      const response = await apiRequest("POST", "/api/contact", data);
       return response.json();
     },
     onSuccess: () => {
       toast({
         title: "Demo Requested Successfully!",
-        description: "We'll contact you within 24 hours to schedule your personalized demo.",
+        description:
+          "We'll contact you within 24 hours to schedule your personalized demo.",
       });
       contactForm.reset();
     },
     onError: (error) => {
       toast({
         title: "Error",
-        description: error.message || "Failed to submit form. Please try again.",
+        description:
+          error.message || "Failed to submit form. Please try again.",
         variant: "destructive",
       });
     },
@@ -91,13 +106,14 @@ export default function Home() {
   // Newsletter mutation
   const newsletterMutation = useMutation({
     mutationFn: async (data: any) => {
-      const response = await apiRequest('POST', '/api/newsletter', data);
+      const response = await apiRequest("POST", "/api/newsletter", data);
       return response.json();
     },
     onSuccess: () => {
       toast({
         title: "Successfully Subscribed!",
-        description: "You'll receive our latest updates and educational insights.",
+        description:
+          "You'll receive our latest updates and educational insights.",
       });
       newsletterForm.reset();
     },
@@ -124,24 +140,35 @@ export default function Home() {
       <header className="bg-white shadow-sm sticky top-0 z-50">
         <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center py-4">
-            <motion.div 
+            <motion.div
               className="flex items-center space-x-3"
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.5 }}
             >
               <GraduationCap className="text-2xl text-blue-600" />
-              <span className="text-xl font-bold text-slate-900">DIYA EduLearn</span>
+              <span className="text-xl font-bold text-slate-900">
+                DIYA EduLearn
+              </span>
             </motion.div>
-            
+
             <div className="hidden md:flex items-center space-x-8">
-              <SmoothScrollLink href="#features" className="text-slate-700 hover:text-blue-600 transition-colors">
+              <SmoothScrollLink
+                href="#features"
+                className="text-slate-700 hover:text-blue-600 transition-colors"
+              >
                 Features
               </SmoothScrollLink>
-              <SmoothScrollLink href="#demo" className="text-slate-700 hover:text-blue-600 transition-colors">
+              <SmoothScrollLink
+                href="#demo"
+                className="text-slate-700 hover:text-blue-600 transition-colors"
+              >
                 Demo
               </SmoothScrollLink>
-              <SmoothScrollLink href="#contact" className="text-slate-700 hover:text-blue-600 transition-colors">
+              <SmoothScrollLink
+                href="#contact"
+                className="text-slate-700 hover:text-blue-600 transition-colors"
+              >
                 Contact
               </SmoothScrollLink>
               <Button className="bg-blue-600 hover:bg-blue-700">
@@ -149,7 +176,7 @@ export default function Home() {
               </Button>
             </div>
 
-            <button 
+            <button
               className="md:hidden text-slate-700"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             >
@@ -159,19 +186,28 @@ export default function Home() {
 
           {/* Mobile Menu */}
           {mobileMenuOpen && (
-            <motion.div 
+            <motion.div
               className="md:hidden border-t border-slate-200 py-4 space-y-4"
               initial={{ opacity: 0, height: 0 }}
-              animate={{ opacity: 1, height: 'auto' }}
+              animate={{ opacity: 1, height: "auto" }}
               exit={{ opacity: 0, height: 0 }}
             >
-              <SmoothScrollLink href="#features" className="block text-slate-700 hover:text-blue-600 transition-colors">
+              <SmoothScrollLink
+                href="#features"
+                className="block text-slate-700 hover:text-blue-600 transition-colors"
+              >
                 Features
               </SmoothScrollLink>
-              <SmoothScrollLink href="#demo" className="block text-slate-700 hover:text-blue-600 transition-colors">
+              <SmoothScrollLink
+                href="#demo"
+                className="block text-slate-700 hover:text-blue-600 transition-colors"
+              >
                 Demo
               </SmoothScrollLink>
-              <SmoothScrollLink href="#contact" className="block text-slate-700 hover:text-blue-600 transition-colors">
+              <SmoothScrollLink
+                href="#contact"
+                className="block text-slate-700 hover:text-blue-600 transition-colors"
+              >
                 Contact
               </SmoothScrollLink>
               <Button className="w-full bg-blue-600 hover:bg-blue-700">
@@ -186,7 +222,7 @@ export default function Home() {
       <section className="bg-gradient-to-br from-blue-600 via-blue-600 to-green-600 py-20 lg:py-28">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <motion.div 
+            <motion.div
               className="text-white"
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
@@ -194,27 +230,39 @@ export default function Home() {
             >
               <div className="inline-flex items-center bg-white/20 rounded-full px-4 py-2 mb-6">
                 <Award className="text-amber-400 mr-2" size={16} />
-                <span className="text-sm font-medium">Digital India's Young Aspirants</span>
+                <span className="text-sm font-medium">
+                  Digital India's Young Aspirants
+                </span>
               </div>
-              
+
               <h1 className="text-4xl lg:text-6xl font-bold leading-tight mb-6">
-                Adaptive Learning That <span className="text-amber-400">Grows</span> With Every Student
+                Adaptive Learning That{" "}
+                <span className="text-amber-400">Grows</span> With Every Student
               </h1>
-              
+
               <p className="text-xl text-blue-100 mb-8 leading-relaxed">
-                Comprehensive competitive exam preparation platform designed for students from 1st to 10th grade with advanced anti-cheat protection and detailed performance analytics.
+                Comprehensive competitive exam preparation platform designed for
+                students from 1st to 10th grade with advanced anti-cheat
+                protection and detailed performance analytics.
               </p>
-              
+
               <div className="flex flex-col sm:flex-row gap-4">
-                <Button size="lg" className="bg-amber-500 text-slate-900 hover:bg-amber-600">
+                <Button
+                  size="lg"
+                  className="bg-amber-500 text-slate-900 hover:bg-amber-600"
+                >
                   <Play className="mr-2" size={20} />
                   Watch Demo
                 </Button>
-                <Button size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-blue-600">
+                <Button
+                  size="lg"
+                  variant="outline"
+                  className="border-white text-white hover:bg-white hover:text-blue-600"
+                >
                   Start Free Trial
                 </Button>
               </div>
-              
+
               <div className="flex items-center space-x-6 mt-8 text-blue-100">
                 <div className="flex items-center">
                   <Check className="text-amber-400 mr-2" size={16} />
@@ -226,8 +274,8 @@ export default function Home() {
                 </div>
               </div>
             </motion.div>
-            
-            <motion.div 
+
+            <motion.div
               className="relative"
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1 }}
@@ -236,14 +284,19 @@ export default function Home() {
               <div className="rounded-2xl shadow-2xl bg-white p-8 relative overflow-hidden">
                 <div className="aspect-video bg-gradient-to-br from-blue-100 to-green-100 rounded-xl flex items-center justify-center">
                   <div className="text-center">
-                    <GraduationCap size={64} className="text-blue-600 mx-auto mb-4" />
-                    <p className="text-slate-600 font-medium">Interactive Learning Platform</p>
+                    <GraduationCap
+                      size={64}
+                      className="text-blue-600 mx-auto mb-4"
+                    />
+                    <p className="text-slate-600 font-medium">
+                      Interactive Learning Platform
+                    </p>
                   </div>
                 </div>
               </div>
-              
+
               {/* Floating stats cards */}
-              <motion.div 
+              <motion.div
                 className="absolute -top-4 -left-4 bg-white rounded-xl p-4 shadow-xl"
                 animate={{ y: [0, -10, 0] }}
                 transition={{ duration: 2, repeat: Infinity }}
@@ -251,8 +304,8 @@ export default function Home() {
                 <div className="text-2xl font-bold text-blue-600">98%</div>
                 <div className="text-sm text-slate-600">Student Engagement</div>
               </motion.div>
-              
-              <motion.div 
+
+              <motion.div
                 className="absolute -bottom-4 -right-4 bg-white rounded-xl p-4 shadow-xl"
                 animate={{ y: [0, 10, 0] }}
                 transition={{ duration: 2, repeat: Infinity, delay: 1 }}
@@ -269,13 +322,18 @@ export default function Home() {
       <section className="bg-white py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-slate-900 mb-4">Why Choose DIYA?</h2>
-            <p className="text-xl text-slate-600">Delivering measurable value to students and educational institutions</p>
+            <h2 className="text-3xl font-bold text-slate-900 mb-4">
+              Why Choose DIYA?
+            </h2>
+            <p className="text-xl text-slate-600">
+              Delivering measurable value to students and educational
+              institutions
+            </p>
           </div>
-          
+
           <div className="grid md:grid-cols-2 gap-12">
             {/* Student Benefits */}
-            <motion.div 
+            <motion.div
               className="bg-gradient-to-br from-blue-50 to-blue-100 rounded-2xl p-8"
               initial={{ opacity: 0, x: -30 }}
               whileInView={{ opacity: 1, x: 0 }}
@@ -286,27 +344,46 @@ export default function Home() {
                 <div className="w-12 h-12 bg-blue-600 rounded-full flex items-center justify-center mr-4">
                   <GraduationCap className="text-white" size={24} />
                 </div>
-                <h3 className="text-2xl font-bold text-blue-800">Student Benefits</h3>
+                <h3 className="text-2xl font-bold text-blue-800">
+                  Student Benefits
+                </h3>
               </div>
               <ul className="space-y-4 text-blue-700">
-
                 <li className="flex items-start">
-                  <Check className="text-blue-600 mr-3 mt-1 flex-shrink-0" size={16} />
-                  <span>Instant Performance Insights: Detailed analytics help identify strengths and improvement areas immediately</span>
+                  <Check
+                    className="text-blue-600 mr-3 mt-1 flex-shrink-0"
+                    size={16}
+                  />
+                  <span>
+                    Instant Performance Insights: Detailed analytics help
+                    identify strengths and improvement areas immediately
+                  </span>
                 </li>
                 <li className="flex items-start">
-                  <Check className="text-blue-600 mr-3 mt-1 flex-shrink-0" size={16} />
-                  <span>Language Comfort: Choose between English and Marathi for comfortable learning experience</span>
+                  <Check
+                    className="text-blue-600 mr-3 mt-1 flex-shrink-0"
+                    size={16}
+                  />
+                  <span>
+                    Language Comfort: Choose between English and Marathi for
+                    comfortable learning experience
+                  </span>
                 </li>
                 <li className="flex items-start">
-                  <Check className="text-blue-600 mr-3 mt-1 flex-shrink-0" size={16} />
-                  <span>Progress Motivation: Track improvement over time and compare with top performers</span>
+                  <Check
+                    className="text-blue-600 mr-3 mt-1 flex-shrink-0"
+                    size={16}
+                  />
+                  <span>
+                    Progress Motivation: Track improvement over time and compare
+                    with top performers
+                  </span>
                 </li>
               </ul>
             </motion.div>
 
             {/* Institute Benefits */}
-            <motion.div 
+            <motion.div
               className="bg-gradient-to-br from-green-50 to-green-100 rounded-2xl p-8"
               initial={{ opacity: 0, x: 30 }}
               whileInView={{ opacity: 1, x: 0 }}
@@ -317,24 +394,52 @@ export default function Home() {
                 <div className="w-12 h-12 bg-green-600 rounded-full flex items-center justify-center mr-4">
                   <University className="text-white" size={24} />
                 </div>
-                <h3 className="text-2xl font-bold text-green-800">Institute Benefits</h3>
+                <h3 className="text-2xl font-bold text-green-800">
+                  Institute Benefits
+                </h3>
               </div>
               <ul className="space-y-4 text-green-700">
                 <li className="flex items-start">
-                  <Check className="text-green-600 mr-3 mt-1 flex-shrink-0" size={16} />
-                  <span><strong>Zero Cheating Incidents:</strong> Advanced monitoring eliminates academic dishonesty and maintains institutional reputation</span>
+                  <Check
+                    className="text-green-600 mr-3 mt-1 flex-shrink-0"
+                    size={16}
+                  />
+                  <span>
+                    <strong>Zero Cheating Incidents:</strong> Advanced
+                    monitoring eliminates academic dishonesty and maintains
+                    institutional reputation
+                  </span>
                 </li>
                 <li className="flex items-start">
-                  <Check className="text-green-600 mr-3 mt-1 flex-shrink-0" size={16} />
-                  <span><strong>Comprehensive Reports:</strong> Class-wise and student-wise analytics help teachers focus on areas needing attention</span>
+                  <Check
+                    className="text-green-600 mr-3 mt-1 flex-shrink-0"
+                    size={16}
+                  />
+                  <span>
+                    <strong>Comprehensive Reports:</strong> Class-wise and
+                    student-wise analytics help teachers focus on areas needing
+                    attention
+                  </span>
                 </li>
                 <li className="flex items-start">
-                  <Check className="text-green-600 mr-3 mt-1 flex-shrink-0" size={16} />
-                  <span><strong>Easy Content Management:</strong> Bulk upload capabilities save time and streamline exam preparation</span>
+                  <Check
+                    className="text-green-600 mr-3 mt-1 flex-shrink-0"
+                    size={16}
+                  />
+                  <span>
+                    <strong>Easy Content Management:</strong> Bulk upload
+                    capabilities save time and streamline exam preparation
+                  </span>
                 </li>
                 <li className="flex items-start">
-                  <Check className="text-green-600 mr-3 mt-1 flex-shrink-0" size={16} />
-                  <span><strong>Competitive Rankings:</strong> Institute performance tracking motivates excellence and attracts more students</span>
+                  <Check
+                    className="text-green-600 mr-3 mt-1 flex-shrink-0"
+                    size={16}
+                  />
+                  <span>
+                    <strong>Competitive Rankings:</strong> Institute performance
+                    tracking motivates excellence and attracts more students
+                  </span>
                 </li>
               </ul>
             </motion.div>
@@ -345,7 +450,7 @@ export default function Home() {
       {/* Features Section */}
       <section id="features" className="py-20 bg-slate-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div 
+          <motion.div
             className="text-center mb-16"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -356,40 +461,62 @@ export default function Home() {
               Powerful Features Built for Modern Learning
             </h2>
             <p className="text-xl text-slate-600 max-w-3xl mx-auto">
-              Our comprehensive platform adapts to each student's unique learning style, providing personalized education experiences that drive real results.
+              Our comprehensive platform adapts to each student's unique
+              learning style, providing personalized education experiences that
+              drive real results.
             </p>
           </motion.div>
-          
+
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {[
               {
                 icon: Brain,
                 title: "Adaptive Learning",
-                description: "AI-powered algorithms adjust difficulty and pace in real-time based on student performance and learning patterns.",
-                features: ["Personalized learning paths", "Real-time difficulty adjustment", "Learning style analysis"],
-                color: "blue"
+                description:
+                  "AI-powered algorithms adjust difficulty and pace in real-time based on student performance and learning patterns.",
+                features: [
+                  "Personalized learning paths",
+                  "Real-time difficulty adjustment",
+                  "Learning style analysis",
+                ],
+                color: "blue",
               },
               {
                 icon: Globe,
                 title: "Bilingual Support",
-                description: "Comprehensive multilingual platform supporting seamless transitions between languages for diverse learners.",
-                features: ["English & Marathi options", "Cultural context integration", "Native language comfort"],
-                color: "green"
+                description:
+                  "Comprehensive multilingual platform supporting seamless transitions between languages for diverse learners.",
+                features: [
+                  "English & Marathi options",
+                  "Cultural context integration",
+                  "Native language comfort",
+                ],
+                color: "green",
               },
               {
                 icon: Shield,
                 title: "Anti-Cheat Protection",
-                description: "Advanced security measures ensure academic integrity while maintaining a smooth learning experience.",
-                features: ["Browser lockdown mode", "Behavioral analytics", "Plagiarism detection"],
-                color: "amber"
+                description:
+                  "Advanced security measures ensure academic integrity while maintaining a smooth learning experience.",
+                features: [
+                  "Browser lockdown mode",
+                  "Behavioral analytics",
+                  "Plagiarism detection",
+                ],
+                color: "amber",
               },
               {
                 icon: BarChart3,
                 title: "Smart Reports",
-                description: "Comprehensive analytics and insights for teachers, parents, and administrators to track progress.",
-                features: ["Real-time dashboards", "Predictive analytics", "Custom report builder"],
-                color: "slate"
-              }
+                description:
+                  "Comprehensive analytics and insights for teachers, parents, and administrators to track progress.",
+                features: [
+                  "Real-time dashboards",
+                  "Predictive analytics",
+                  "Custom report builder",
+                ],
+                color: "slate",
+              },
             ].map((feature, index) => (
               <motion.div
                 key={feature.title}
@@ -398,27 +525,44 @@ export default function Home() {
                 transition={{ duration: 0.6, delay: index * 0.1 }}
                 viewport={{ once: true }}
               >
-                <Card className={`h-full hover:shadow-xl transition-shadow border-l-4 ${
-                  feature.color === 'blue' ? 'border-l-blue-500' :
-                  feature.color === 'green' ? 'border-l-green-500' :
-                  feature.color === 'amber' ? 'border-l-amber-500' :
-                  'border-l-slate-500'
-                }`}>
+                <Card
+                  className={`h-full hover:shadow-xl transition-shadow border-l-4 ${
+                    feature.color === "blue"
+                      ? "border-l-blue-500"
+                      : feature.color === "green"
+                      ? "border-l-green-500"
+                      : feature.color === "amber"
+                      ? "border-l-amber-500"
+                      : "border-l-slate-500"
+                  }`}
+                >
                   <CardContent className="p-8">
-                    <div className={`w-12 h-12 rounded-lg flex items-center justify-center mb-6 ${
-                      feature.color === 'blue' ? 'bg-blue-100' :
-                      feature.color === 'green' ? 'bg-green-100' :
-                      feature.color === 'amber' ? 'bg-amber-100' :
-                      'bg-slate-100'
-                    }`}>
-                      <feature.icon className={`text-xl ${
-                        feature.color === 'blue' ? 'text-blue-600' :
-                        feature.color === 'green' ? 'text-green-600' :
-                        feature.color === 'amber' ? 'text-amber-600' :
-                        'text-slate-600'
-                      }`} />
+                    <div
+                      className={`w-12 h-12 rounded-lg flex items-center justify-center mb-6 ${
+                        feature.color === "blue"
+                          ? "bg-blue-100"
+                          : feature.color === "green"
+                          ? "bg-green-100"
+                          : feature.color === "amber"
+                          ? "bg-amber-100"
+                          : "bg-slate-100"
+                      }`}
+                    >
+                      <feature.icon
+                        className={`text-xl ${
+                          feature.color === "blue"
+                            ? "text-blue-600"
+                            : feature.color === "green"
+                            ? "text-green-600"
+                            : feature.color === "amber"
+                            ? "text-amber-600"
+                            : "text-slate-600"
+                        }`}
+                      />
                     </div>
-                    <h3 className="text-xl font-semibold text-slate-900 mb-4">{feature.title}</h3>
+                    <h3 className="text-xl font-semibold text-slate-900 mb-4">
+                      {feature.title}
+                    </h3>
                     <p className="text-slate-600 mb-6">{feature.description}</p>
                     <ul className="space-y-2 text-sm text-slate-600">
                       {feature.features.map((item, idx) => (
@@ -439,31 +583,48 @@ export default function Home() {
       {/* Demo Section */}
       <section id="demo" className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div 
+          <motion.div
             className="text-center mb-16"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-4xl font-bold text-slate-900 mb-4">See DIYA EduLearn in Action</h2>
-            <p className="text-xl text-slate-600">Explore our intuitive interface designed for students, teachers, and parents</p>
+            <h2 className="text-4xl font-bold text-slate-900 mb-4">
+              See DIYA EduLearn in Action
+            </h2>
+            <p className="text-xl text-slate-600">
+              Explore our intuitive interface designed for students, teachers,
+              and parents
+            </p>
           </motion.div>
-          
+
           <div className="grid lg:grid-cols-3 gap-8 mb-16">
             {[
               {
                 title: "Student Dashboard",
-                features: ["Personalized learning dashboard", "Progress tracking and achievements", "Interactive lessons and quizzes"]
+                features: [
+                  "Personalized learning dashboard",
+                  "Progress tracking and achievements",
+                  "Interactive lessons and quizzes",
+                ],
               },
               {
                 title: "Teacher Interface",
-                features: ["Comprehensive class management", "Assignment creation and grading", "Student analytics and insights"]
+                features: [
+                  "Comprehensive class management",
+                  "Assignment creation and grading",
+                  "Student analytics and insights",
+                ],
               },
               {
                 title: "Mobile Experience",
-                features: ["Full-featured mobile apps", "Offline learning capabilities", "Cross-device synchronization"]
-              }
+                features: [
+                  "Full-featured mobile apps",
+                  "Offline learning capabilities",
+                  "Cross-device synchronization",
+                ],
+              },
             ].map((item, index) => (
               <motion.div
                 key={item.title}
@@ -473,10 +634,15 @@ export default function Home() {
                 transition={{ duration: 0.6, delay: index * 0.1 }}
                 viewport={{ once: true }}
               >
-                <h3 className="text-2xl font-semibold text-slate-900">{item.title}</h3>
+                <h3 className="text-2xl font-semibold text-slate-900">
+                  {item.title}
+                </h3>
                 <div className="aspect-video rounded-xl shadow-lg bg-gradient-to-br from-blue-50 to-green-50 flex items-center justify-center">
                   <div className="text-center">
-                    <Smartphone size={48} className="text-blue-600 mx-auto mb-4" />
+                    <Smartphone
+                      size={48}
+                      className="text-blue-600 mx-auto mb-4"
+                    />
                     <p className="text-slate-600">{item.title} Preview</p>
                   </div>
                 </div>
@@ -491,9 +657,9 @@ export default function Home() {
               </motion.div>
             ))}
           </div>
-          
+
           {/* Demo Video Section */}
-          <motion.div 
+          <motion.div
             className="text-center"
             initial={{ opacity: 0, scale: 0.9 }}
             whileInView={{ opacity: 1, scale: 1 }}
@@ -502,15 +668,23 @@ export default function Home() {
           >
             <Card className="bg-slate-100 p-12 relative overflow-hidden">
               <CardContent className="relative z-10">
-                <h3 className="text-2xl font-semibold text-slate-900 mb-4">Watch Our Platform Demo</h3>
-                <p className="text-slate-600 mb-8">See how DIYA EduLearn transforms the learning experience in just 3 minutes</p>
+                <h3 className="text-2xl font-semibold text-slate-900 mb-4">
+                  Watch Our Platform Demo
+                </h3>
+                <p className="text-slate-600 mb-8">
+                  See how DIYA EduLearn transforms the learning experience in
+                  just 3 minutes
+                </p>
                 <Button size="lg" className="bg-blue-600 hover:bg-blue-700">
                   <Play className="mr-3" size={20} />
                   Play Demo Video
                 </Button>
               </CardContent>
               <div className="absolute inset-0 opacity-10">
-                <Play className="text-6xl text-blue-600 absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2" size={96} />
+                <Play
+                  className="text-6xl text-blue-600 absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"
+                  size={96}
+                />
               </div>
             </Card>
           </motion.div>
@@ -520,72 +694,87 @@ export default function Home() {
       {/* Platform Benefits Section */}
       <section id="demo" className="py-20 bg-slate-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div 
+          <motion.div
             className="text-center mb-16"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-4xl font-bold text-slate-900 mb-4">Revolutionary Exam Platform with Unmatched Security</h2>
-            <p className="text-xl text-slate-600">Advanced anti-cheat technology and comprehensive analytics for fair, transparent competitive exam preparation</p>
+            <h2 className="text-4xl font-bold text-slate-900 mb-4">
+              Revolutionary Exam Platform with Unmatched Security
+            </h2>
+            <p className="text-xl text-slate-600">
+              Advanced anti-cheat technology and comprehensive analytics for
+              fair, transparent competitive exam preparation
+            </p>
           </motion.div>
-          
+
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
             {[
               {
                 title: "Smart Question Shuffling",
-                description: "Every student receives a unique test version with randomized questions and answer options",
+                description:
+                  "Every student receives a unique test version with randomized questions and answer options",
                 icon: "🔀",
-                featured: true
+                featured: true,
               },
               {
                 title: "Time-Limited Exams",
-                description: "Clear countdown timer with reverse countdown to help students manage time effectively",
+                description:
+                  "Clear countdown timer with reverse countdown to help students manage time effectively",
                 icon: "⏱️",
-                featured: true
+                featured: true,
               },
               {
                 title: "Customizable Difficulty",
-                description: "Mix of Easy, Medium, and Hard questions with adjustable percentage distribution",
+                description:
+                  "Mix of Easy, Medium, and Hard questions with adjustable percentage distribution",
                 icon: "⚖️",
-                featured: true
+                featured: true,
               },
               {
                 title: "Time Window Control",
-                description: "Authorities can set specific start and end times for exam availability",
+                description:
+                  "Authorities can set specific start and end times for exam availability",
                 icon: "📅",
-                featured: true
+                featured: true,
               },
               {
                 title: "Real-Time Monitoring",
-                description: "Live exam supervision with instant alerts for suspicious activities during tests",
+                description:
+                  "Live exam supervision with instant alerts for suspicious activities during tests",
                 icon: "👁️",
-                featured: false
+                featured: false,
               },
               {
                 title: "Custom Content Library",
-                description: "Create institute-specific video lectures and notes accessible only to your students",
+                description:
+                  "Create institute-specific video lectures and notes accessible only to your students",
                 icon: "📚",
-                featured: false
+                featured: false,
               },
               {
                 title: "Progress Tracking",
-                description: "Long-term performance monitoring with topper comparison to motivate students",
+                description:
+                  "Long-term performance monitoring with topper comparison to motivate students",
                 icon: "📈",
-                featured: false
+                featured: false,
               },
               {
                 title: "Time Management",
-                description: "Countdown timers and flexible time windows for effective exam administration",
+                description:
+                  "Countdown timers and flexible time windows for effective exam administration",
                 icon: "⏱️",
-                featured: false
-              }
+                featured: false,
+              },
             ].map((benefit, index) => (
               <motion.div
                 key={benefit.title}
                 className={`bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 ${
-                  benefit.featured ? 'ring-2 ring-blue-500 transform scale-105' : ''
+                  benefit.featured
+                    ? "ring-2 ring-blue-500 transform scale-105"
+                    : ""
                 }`}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -593,9 +782,13 @@ export default function Home() {
                 viewport={{ once: true }}
               >
                 <div className="text-4xl mb-4">{benefit.icon}</div>
-                <h3 className={`text-xl font-semibold mb-3 ${
-                  benefit.featured ? 'text-blue-700' : 'text-slate-900'
-                }`}>{benefit.title}</h3>
+                <h3
+                  className={`text-xl font-semibold mb-3 ${
+                    benefit.featured ? "text-blue-700" : "text-slate-900"
+                  }`}
+                >
+                  {benefit.title}
+                </h3>
                 <p className="text-slate-600">{benefit.description}</p>
                 {benefit.featured && (
                   <div className="mt-3 text-xs bg-blue-100 text-blue-600 px-3 py-1 rounded-full inline-block">
@@ -607,7 +800,7 @@ export default function Home() {
           </div>
 
           {/* Platform Statistics */}
-          <motion.div 
+          <motion.div
             className="grid md:grid-cols-4 gap-8 text-center"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -618,7 +811,11 @@ export default function Home() {
               { number: "4", label: "Core Security Features", color: "blue" },
               { number: "1-10", label: "Grade Levels Covered", color: "green" },
               { number: "2", label: "Languages Supported", color: "amber" },
-              { number: "100%", label: "Fair Testing Guarantee", color: "slate" }
+              {
+                number: "100%",
+                label: "Fair Testing Guarantee",
+                color: "slate",
+              },
             ].map((stat, index) => (
               <motion.div
                 key={stat.label}
@@ -627,12 +824,17 @@ export default function Home() {
                 transition={{ duration: 0.6, delay: index * 0.1 }}
                 viewport={{ once: true }}
               >
-                <div className={`text-3xl font-bold mb-2 ${
-                  stat.color === 'blue' ? 'text-blue-600' :
-                  stat.color === 'green' ? 'text-green-600' :
-                  stat.color === 'amber' ? 'text-amber-600' :
-                  'text-slate-700'
-                }`}>
+                <div
+                  className={`text-3xl font-bold mb-2 ${
+                    stat.color === "blue"
+                      ? "text-blue-600"
+                      : stat.color === "green"
+                      ? "text-green-600"
+                      : stat.color === "amber"
+                      ? "text-amber-600"
+                      : "text-slate-700"
+                  }`}
+                >
                   {stat.number}
                 </div>
                 <div className="text-slate-600">{stat.label}</div>
@@ -646,22 +848,27 @@ export default function Home() {
       <section className="py-20 bg-gradient-to-r from-blue-600 to-green-600">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
-            
             {/* Newsletter Signup */}
-            <motion.div 
+            <motion.div
               className="text-white"
               initial={{ opacity: 0, x: -30 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6 }}
               viewport={{ once: true }}
             >
-              <h2 className="text-3xl font-bold mb-4">Stay Connected with DIYA EduLearn</h2>
+              <h2 className="text-3xl font-bold mb-4">
+                Stay Connected with DIYA EduLearn
+              </h2>
               <p className="text-blue-100 text-lg mb-8">
-                Get the latest updates on new features, educational insights, and special offers for schools and districts.
+                Get the latest updates on new features, educational insights,
+                and special offers for schools and districts.
               </p>
-              
+
               <Form {...newsletterForm}>
-                <form onSubmit={newsletterForm.handleSubmit(onNewsletterSubmit)} className="space-y-4">
+                <form
+                  onSubmit={newsletterForm.handleSubmit(onNewsletterSubmit)}
+                  className="space-y-4"
+                >
                   <div className="flex flex-col sm:flex-row gap-4">
                     <FormField
                       control={newsletterForm.control}
@@ -669,8 +876,8 @@ export default function Home() {
                       render={({ field }) => (
                         <FormItem className="flex-1">
                           <FormControl>
-                            <Input 
-                              placeholder="Enter your email address" 
+                            <Input
+                              placeholder="Enter your email address"
                               className="text-slate-900 placeholder-slate-500"
                               {...field}
                             />
@@ -679,12 +886,14 @@ export default function Home() {
                         </FormItem>
                       )}
                     />
-                    <Button 
+                    <Button
                       type="submit"
                       disabled={newsletterMutation.isPending}
                       className="bg-amber-500 text-slate-900 hover:bg-amber-600"
                     >
-                      {newsletterMutation.isPending ? 'Subscribing...' : 'Subscribe'}
+                      {newsletterMutation.isPending
+                        ? "Subscribing..."
+                        : "Subscribe"}
                     </Button>
                   </div>
                   <div className="flex items-center text-sm text-blue-100">
@@ -696,28 +905,37 @@ export default function Home() {
             </motion.div>
 
             {/* Mobile App Download */}
-            <motion.div 
+            <motion.div
               className="text-white"
               initial={{ opacity: 0, x: 30 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6 }}
               viewport={{ once: true }}
             >
-              <h3 className="text-2xl font-bold mb-4">Download Our Mobile Apps</h3>
+              <h3 className="text-2xl font-bold mb-4">
+                Download Our Mobile Apps
+              </h3>
               <p className="text-blue-100 mb-6">
-                Take learning anywhere with our full-featured mobile applications for students and teachers.
+                Take learning anywhere with our full-featured mobile
+                applications for students and teachers.
               </p>
-              
+
               <div className="space-y-4">
-                <a href="#" className="flex items-center bg-black text-white rounded-lg p-4 hover:bg-gray-800 transition-colors">
+                <a
+                  href="#"
+                  className="flex items-center bg-black text-white rounded-lg p-4 hover:bg-gray-800 transition-colors"
+                >
                   <Smartphone className="text-2xl mr-4" />
                   <div>
                     <div className="text-xs">Download on the</div>
                     <div className="font-semibold">App Store</div>
                   </div>
                 </a>
-                
-                <a href="#" className="flex items-center bg-black text-white rounded-lg p-4 hover:bg-gray-800 transition-colors">
+
+                <a
+                  href="#"
+                  className="flex items-center bg-black text-white rounded-lg p-4 hover:bg-gray-800 transition-colors"
+                >
                   <Smartphone className="text-2xl mr-4" />
                   <div>
                     <div className="text-xs">Get it on</div>
@@ -725,7 +943,7 @@ export default function Home() {
                   </div>
                 </a>
               </div>
-              
+
               <div className="mt-6 text-blue-100 text-sm">
                 <Smartphone className="inline mr-2" size={16} />
                 Compatible with iOS 12+ and Android 8+
@@ -738,31 +956,40 @@ export default function Home() {
       {/* Contact & Demo Form */}
       <section id="contact" className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div 
+          <motion.div
             className="text-center mb-16"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-4xl font-bold text-slate-900 mb-4">Ready to Transform Your School?</h2>
-            <p className="text-xl text-slate-600">Schedule a personalized demo and see how DIYA EduLearn can revolutionize learning at your institution</p>
+            <h2 className="text-4xl font-bold text-slate-900 mb-4">
+              Ready to Transform Your School?
+            </h2>
+            <p className="text-xl text-slate-600">
+              Schedule a personalized demo and see how DIYA EduLearn can
+              revolutionize learning at your institution
+            </p>
           </motion.div>
-          
+
           <div className="grid lg:grid-cols-2 gap-12">
-            
             {/* Contact Form */}
-            <motion.div 
+            <motion.div
               className="bg-slate-50 rounded-2xl p-8"
               initial={{ opacity: 0, x: -30 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6 }}
               viewport={{ once: true }}
             >
-              <h3 className="text-2xl font-semibold text-slate-900 mb-6">Request Your Demo</h3>
-              
+              <h3 className="text-2xl font-semibold text-slate-900 mb-6">
+                Request Your Demo
+              </h3>
+
               <Form {...contactForm}>
-                <form onSubmit={contactForm.handleSubmit(onContactSubmit)} className="space-y-6">
+                <form
+                  onSubmit={contactForm.handleSubmit(onContactSubmit)}
+                  className="space-y-6"
+                >
                   <div className="grid md:grid-cols-2 gap-6">
                     <FormField
                       control={contactForm.control}
@@ -791,7 +1018,7 @@ export default function Home() {
                       )}
                     />
                   </div>
-                  
+
                   <FormField
                     control={contactForm.control}
                     name="email"
@@ -805,7 +1032,7 @@ export default function Home() {
                       </FormItem>
                     )}
                   />
-                  
+
                   <FormField
                     control={contactForm.control}
                     name="school"
@@ -819,14 +1046,17 @@ export default function Home() {
                       </FormItem>
                     )}
                   />
-                  
+
                   <FormField
                     control={contactForm.control}
                     name="role"
                     render={({ field }) => (
                       <FormItem>
                         <FormLabel>Role</FormLabel>
-                        <Select onValueChange={field.onChange} defaultValue={field.value}>
+                        <Select
+                          onValueChange={field.onChange}
+                          defaultValue={field.value}
+                        >
                           <FormControl>
                             <SelectTrigger>
                               <SelectValue placeholder="Select your role" />
@@ -834,9 +1064,15 @@ export default function Home() {
                           </FormControl>
                           <SelectContent>
                             <SelectItem value="teacher">Teacher</SelectItem>
-                            <SelectItem value="principal">Principal/Administrator</SelectItem>
-                            <SelectItem value="it_director">IT Director</SelectItem>
-                            <SelectItem value="district_admin">District Administrator</SelectItem>
+                            <SelectItem value="principal">
+                              Principal/Administrator
+                            </SelectItem>
+                            <SelectItem value="it_director">
+                              IT Director
+                            </SelectItem>
+                            <SelectItem value="district_admin">
+                              District Administrator
+                            </SelectItem>
                             <SelectItem value="parent">Parent</SelectItem>
                             <SelectItem value="other">Other</SelectItem>
                           </SelectContent>
@@ -845,14 +1081,17 @@ export default function Home() {
                       </FormItem>
                     )}
                   />
-                  
+
                   <FormField
                     control={contactForm.control}
                     name="studentCount"
                     render={({ field }) => (
                       <FormItem>
                         <FormLabel>Number of Students</FormLabel>
-                        <Select onValueChange={field.onChange} defaultValue={field.value}>
+                        <Select
+                          onValueChange={field.onChange}
+                          defaultValue={field.value}
+                        >
                           <FormControl>
                             <SelectTrigger>
                               <SelectValue placeholder="Select student count" />
@@ -860,17 +1099,25 @@ export default function Home() {
                           </FormControl>
                           <SelectContent>
                             <SelectItem value="1-50">1-50 students</SelectItem>
-                            <SelectItem value="51-200">51-200 students</SelectItem>
-                            <SelectItem value="201-500">201-500 students</SelectItem>
-                            <SelectItem value="501-1000">501-1000 students</SelectItem>
-                            <SelectItem value="1000+">1000+ students</SelectItem>
+                            <SelectItem value="51-200">
+                              51-200 students
+                            </SelectItem>
+                            <SelectItem value="201-500">
+                              201-500 students
+                            </SelectItem>
+                            <SelectItem value="501-1000">
+                              501-1000 students
+                            </SelectItem>
+                            <SelectItem value="1000+">
+                              1000+ students
+                            </SelectItem>
                           </SelectContent>
                         </Select>
                         <FormMessage />
                       </FormItem>
                     )}
                   />
-                  
+
                   <FormField
                     control={contactForm.control}
                     name="message"
@@ -878,7 +1125,7 @@ export default function Home() {
                       <FormItem>
                         <FormLabel>Message</FormLabel>
                         <FormControl>
-                          <Textarea 
+                          <Textarea
                             placeholder="Tell us about your educational goals and any specific questions you have..."
                             rows={4}
                             {...field}
@@ -888,25 +1135,28 @@ export default function Home() {
                       </FormItem>
                     )}
                   />
-                  
-                  <Button 
-                    type="submit" 
-                    className="w-full bg-blue-600 hover:bg-blue-700" 
+
+                  <Button
+                    type="submit"
+                    className="w-full bg-blue-600 hover:bg-blue-700"
                     size="lg"
                     disabled={contactMutation.isPending}
                   >
-                    {contactMutation.isPending ? 'Scheduling...' : 'Schedule Demo'}
+                    {contactMutation.isPending
+                      ? "Scheduling..."
+                      : "Schedule Demo"}
                   </Button>
-                  
+
                   <p className="text-sm text-slate-600 text-center">
-                    By submitting this form, you agree to our privacy policy and terms of service.
+                    By submitting this form, you agree to our privacy policy and
+                    terms of service.
                   </p>
                 </form>
               </Form>
             </motion.div>
 
             {/* Contact Information */}
-            <motion.div 
+            <motion.div
               className="space-y-8"
               initial={{ opacity: 0, x: 30 }}
               whileInView={{ opacity: 1, x: 0 }}
@@ -914,47 +1164,70 @@ export default function Home() {
               viewport={{ once: true }}
             >
               <div>
-                <h3 className="text-2xl font-semibold text-slate-900 mb-6">Get In Touch</h3>
+                <h3 className="text-2xl font-semibold text-slate-900 mb-6">
+                  Get In Touch
+                </h3>
                 <div className="space-y-6">
                   <div className="flex items-start">
                     <div className="bg-blue-100 w-12 h-12 rounded-lg flex items-center justify-center mr-4">
                       <Phone className="text-blue-600" size={20} />
                     </div>
                     <div>
-                      <h4 className="font-semibold text-slate-900">Phone Support</h4>
-                      <p className="text-slate-600">1-800-EDU-LEARN (338-5327)</p>
-                      <p className="text-sm text-slate-500">Monday - Friday, 8 AM - 6 PM EST</p>
+                      <h4 className="font-semibold text-slate-900">
+                        Phone Support
+                      </h4>
+                      <p className="text-slate-600">
+                        1-800-EDU-LEARN (338-5327)
+                      </p>
+                      <p className="text-sm text-slate-500">
+                        Monday - Friday, 8 AM - 6 PM EST
+                      </p>
                     </div>
                   </div>
-                  
+
                   <div className="flex items-start">
                     <div className="bg-green-100 w-12 h-12 rounded-lg flex items-center justify-center mr-4">
                       <Mail className="text-green-600" size={20} />
                     </div>
                     <div>
-                      <h4 className="font-semibold text-slate-900">Email Support</h4>
+                      <h4 className="font-semibold text-slate-900">
+                        Email Support
+                      </h4>
                       <p className="text-slate-600">support@diyaedlearn.com</p>
-                      <p className="text-sm text-slate-500">24/7 response within 2 hours</p>
+                      <p className="text-sm text-slate-500">
+                        24/7 response within 2 hours
+                      </p>
                     </div>
                   </div>
-                  
+
                   <div className="flex items-start">
                     <div className="bg-amber-100 w-12 h-12 rounded-lg flex items-center justify-center mr-4">
                       <GraduationCap className="text-amber-600" size={20} />
                     </div>
                     <div>
-                      <h4 className="font-semibold text-slate-900">Training & Onboarding</h4>
-                      <p className="text-slate-600">Free setup and training included</p>
-                      <p className="text-sm text-slate-500">Dedicated success manager assigned</p>
+                      <h4 className="font-semibold text-slate-900">
+                        Training & Onboarding
+                      </h4>
+                      <p className="text-slate-600">
+                        Free setup and training included
+                      </p>
+                      <p className="text-sm text-slate-500">
+                        Dedicated success manager assigned
+                      </p>
                     </div>
                   </div>
                 </div>
               </div>
-              
+
               <div className="aspect-video rounded-xl shadow-lg bg-gradient-to-br from-blue-50 to-green-50 flex items-center justify-center">
                 <div className="text-center">
-                  <GraduationCap size={64} className="text-blue-600 mx-auto mb-4" />
-                  <p className="text-slate-600 font-medium">Students Collaborating</p>
+                  <GraduationCap
+                    size={64}
+                    className="text-blue-600 mx-auto mb-4"
+                  />
+                  <p className="text-slate-600 font-medium">
+                    Students Collaborating
+                  </p>
                 </div>
               </div>
             </motion.div>
@@ -966,7 +1239,6 @@ export default function Home() {
       <footer className="bg-slate-900 text-white py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-4 gap-8">
-            
             {/* Company Info */}
             <div className="space-y-4">
               <div className="flex items-center space-x-3">
@@ -974,19 +1246,32 @@ export default function Home() {
                 <span className="text-xl font-bold">DIYA EduLearn</span>
               </div>
               <p className="text-slate-400">
-                Empowering education through innovative technology and adaptive learning solutions for the next generation.
+                Empowering education through innovative technology and adaptive
+                learning solutions for the next generation.
               </p>
               <div className="flex space-x-4">
-                <a href="#" className="text-slate-400 hover:text-blue-400 transition-colors">
+                <a
+                  href="#"
+                  className="text-slate-400 hover:text-blue-400 transition-colors"
+                >
                   <Facebook size={20} />
                 </a>
-                <a href="#" className="text-slate-400 hover:text-blue-400 transition-colors">
+                <a
+                  href="#"
+                  className="text-slate-400 hover:text-blue-400 transition-colors"
+                >
                   <Twitter size={20} />
                 </a>
-                <a href="#" className="text-slate-400 hover:text-blue-400 transition-colors">
+                <a
+                  href="#"
+                  className="text-slate-400 hover:text-blue-400 transition-colors"
+                >
                   <Linkedin size={20} />
                 </a>
-                <a href="#" className="text-slate-400 hover:text-blue-400 transition-colors">
+                <a
+                  href="#"
+                  className="text-slate-400 hover:text-blue-400 transition-colors"
+                >
                   <Youtube size={20} />
                 </a>
               </div>
@@ -996,11 +1281,31 @@ export default function Home() {
             <div>
               <h4 className="font-semibold mb-4">Product</h4>
               <ul className="space-y-2 text-slate-400">
-                <li><a href="#" className="hover:text-white transition-colors">Features</a></li>
-                <li><a href="#" className="hover:text-white transition-colors">Pricing</a></li>
-                <li><a href="#" className="hover:text-white transition-colors">Demo</a></li>
-                <li><a href="#" className="hover:text-white transition-colors">Mobile Apps</a></li>
-                <li><a href="#" className="hover:text-white transition-colors">Integrations</a></li>
+                <li>
+                  <a href="#" className="hover:text-white transition-colors">
+                    Features
+                  </a>
+                </li>
+                <li>
+                  <a href="#" className="hover:text-white transition-colors">
+                    Pricing
+                  </a>
+                </li>
+                <li>
+                  <a href="#" className="hover:text-white transition-colors">
+                    Demo
+                  </a>
+                </li>
+                <li>
+                  <a href="#" className="hover:text-white transition-colors">
+                    Mobile Apps
+                  </a>
+                </li>
+                <li>
+                  <a href="#" className="hover:text-white transition-colors">
+                    Integrations
+                  </a>
+                </li>
               </ul>
             </div>
 
@@ -1008,11 +1313,31 @@ export default function Home() {
             <div>
               <h4 className="font-semibold mb-4">Support</h4>
               <ul className="space-y-2 text-slate-400">
-                <li><a href="#" className="hover:text-white transition-colors">Help Center</a></li>
-                <li><a href="#" className="hover:text-white transition-colors">Training Resources</a></li>
-                <li><a href="#" className="hover:text-white transition-colors">Community Forum</a></li>
-                <li><a href="#" className="hover:text-white transition-colors">Contact Support</a></li>
-                <li><a href="#" className="hover:text-white transition-colors">System Status</a></li>
+                <li>
+                  <a href="#" className="hover:text-white transition-colors">
+                    Help Center
+                  </a>
+                </li>
+                <li>
+                  <a href="#" className="hover:text-white transition-colors">
+                    Training Resources
+                  </a>
+                </li>
+                <li>
+                  <a href="#" className="hover:text-white transition-colors">
+                    Community Forum
+                  </a>
+                </li>
+                <li>
+                  <a href="#" className="hover:text-white transition-colors">
+                    Contact Support
+                  </a>
+                </li>
+                <li>
+                  <a href="#" className="hover:text-white transition-colors">
+                    System Status
+                  </a>
+                </li>
               </ul>
             </div>
 
@@ -1020,18 +1345,39 @@ export default function Home() {
             <div>
               <h4 className="font-semibold mb-4">Legal</h4>
               <ul className="space-y-2 text-slate-400">
-                <li><a href="#" className="hover:text-white transition-colors">Privacy Policy</a></li>
-                <li><a href="#" className="hover:text-white transition-colors">Terms of Service</a></li>
-                <li><a href="#" className="hover:text-white transition-colors">COPPA Compliance</a></li>
-                <li><a href="#" className="hover:text-white transition-colors">FERPA Information</a></li>
-                <li><a href="#" className="hover:text-white transition-colors">Accessibility</a></li>
+                <li>
+                  <a href="#" className="hover:text-white transition-colors">
+                    Privacy Policy
+                  </a>
+                </li>
+                <li>
+                  <a href="#" className="hover:text-white transition-colors">
+                    Terms of Service
+                  </a>
+                </li>
+                <li>
+                  <a href="#" className="hover:text-white transition-colors">
+                    COPPA Compliance
+                  </a>
+                </li>
+                <li>
+                  <a href="#" className="hover:text-white transition-colors">
+                    FERPA Information
+                  </a>
+                </li>
+                <li>
+                  <a href="#" className="hover:text-white transition-colors">
+                    Accessibility
+                  </a>
+                </li>
               </ul>
             </div>
           </div>
-          
+
           <div className="border-t border-slate-800 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
             <p className="text-slate-400 text-sm">
-              © 2024 DIYA EduLearn. All rights reserved. | Proudly supporting education nationwide.
+              © 2024 DIYA EduLearn. All rights reserved. | Proudly supporting
+              education nationwide.
             </p>
             <div className="flex items-center space-x-4 mt-4 md:mt-0 text-sm text-slate-400">
               <div className="flex items-center">
