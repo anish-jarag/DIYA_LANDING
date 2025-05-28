@@ -482,77 +482,158 @@ export default function Home() {
             <p className="text-xl text-slate-600">Advanced anti-cheat technology and comprehensive analytics for fair, transparent competitive exam preparation</p>
           </motion.div>
           
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
+          {/* Core Security Features - Hero Style */}
+          <div className="mb-20">
+            <div className="text-center mb-12">
+              <h3 className="text-2xl font-bold text-slate-900 mb-4">🛡️ Unmatched Security & Fairness</h3>
+              <p className="text-lg text-slate-600">Industry-leading anti-cheat technology ensures every exam is fair and secure</p>
+            </div>
+            
+            <div className="grid md:grid-cols-2 gap-8 mb-16">
+              <motion.div
+                className="bg-gradient-to-br from-red-50 to-red-100 border-2 border-red-200 rounded-2xl p-8 hover:shadow-2xl transition-all duration-300"
+                initial={{ opacity: 0, x: -50 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.8 }}
+                viewport={{ once: true }}
+              >
+                <div className="flex items-center mb-6">
+                  <div className="w-16 h-16 bg-red-500 rounded-full flex items-center justify-center text-white text-2xl mr-4">
+                    🛡️
+                  </div>
+                  <div>
+                    <h4 className="text-xl font-bold text-red-800">Advanced Anti-Cheat System</h4>
+                    <span className="text-red-600 font-medium">Zero Tolerance Policy</span>
+                  </div>
+                </div>
+                <p className="text-red-700 text-lg leading-relaxed">
+                  Real-time tab monitoring with instant warnings. Automatic test termination for integrity violations. 
+                  Complete browser lockdown ensures academic honesty.
+                </p>
+              </motion.div>
+
+              <motion.div
+                className="bg-gradient-to-br from-blue-50 to-blue-100 border-2 border-blue-200 rounded-2xl p-8 hover:shadow-2xl transition-all duration-300"
+                initial={{ opacity: 0, x: 50 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.8 }}
+                viewport={{ once: true }}
+              >
+                <div className="flex items-center mb-6">
+                  <div className="w-16 h-16 bg-blue-500 rounded-full flex items-center justify-center text-white text-2xl mr-4">
+                    🔀
+                  </div>
+                  <div>
+                    <h4 className="text-xl font-bold text-blue-800">Smart Question Shuffling</h4>
+                    <span className="text-blue-600 font-medium">Unique for Every Student</span>
+                  </div>
+                </div>
+                <p className="text-blue-700 text-lg leading-relaxed">
+                  Every student gets a completely unique exam version. Questions and answers automatically randomized 
+                  to ensure fairness while maintaining exam integrity.
+                </p>
+              </motion.div>
+            </div>
+          </div>
+
+          {/* Analytics & Accessibility */}
+          <div className="mb-16">
+            <div className="text-center mb-12">
+              <h3 className="text-2xl font-bold text-slate-900 mb-4">📊 Smart Analytics & Accessibility</h3>
+              <p className="text-lg text-slate-600">Comprehensive insights and multilingual support for better learning outcomes</p>
+            </div>
+            
+            <div className="grid md:grid-cols-2 gap-8 mb-12">
+              <motion.div
+                className="bg-gradient-to-br from-green-50 to-green-100 border-2 border-green-200 rounded-2xl p-8 hover:shadow-2xl transition-all duration-300"
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.2 }}
+                viewport={{ once: true }}
+              >
+                <div className="flex items-center mb-6">
+                  <div className="w-16 h-16 bg-green-500 rounded-full flex items-center justify-center text-white text-2xl mr-4">
+                    📊
+                  </div>
+                  <div>
+                    <h4 className="text-xl font-bold text-green-800">Comprehensive Analytics</h4>
+                    <span className="text-green-600 font-medium">Visual Performance Insights</span>
+                  </div>
+                </div>
+                <p className="text-green-700 text-lg leading-relaxed">
+                  Interactive pie charts and bar graphs. Chapter-wise performance breakdown. 
+                  Detailed feedback to identify improvement areas instantly.
+                </p>
+              </motion.div>
+
+              <motion.div
+                className="bg-gradient-to-br from-purple-50 to-purple-100 border-2 border-purple-200 rounded-2xl p-8 hover:shadow-2xl transition-all duration-300"
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.4 }}
+                viewport={{ once: true }}
+              >
+                <div className="flex items-center mb-6">
+                  <div className="w-16 h-16 bg-purple-500 rounded-full flex items-center justify-center text-white text-2xl mr-4">
+                    🌍
+                  </div>
+                  <div>
+                    <h4 className="text-xl font-bold text-purple-800">Bilingual Platform</h4>
+                    <span className="text-purple-600 font-medium">English & Marathi Support</span>
+                  </div>
+                </div>
+                <p className="text-purple-700 text-lg leading-relaxed">
+                  Complete app and content available in multiple languages. Students can choose their preferred 
+                  language for comfortable learning experience.
+                </p>
+              </motion.div>
+            </div>
+          </div>
+
+          {/* Additional Features Grid */}
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {[
               {
-                title: "Advanced Anti-Cheat System",
-                description: "Real-time tab monitoring with automatic warnings and test termination to ensure complete exam integrity",
-                icon: "🛡️",
-                featured: true
-              },
-              {
-                title: "Smart Question Shuffling",
-                description: "Every student receives a unique test version with randomized questions and answer options",
-                icon: "🔀",
-                featured: true
-              },
-              {
-                title: "Comprehensive Analytics",
-                description: "Visual reports with pie charts and bar graphs showing detailed performance insights",
-                icon: "📊",
-                featured: true
-              },
-              {
-                title: "Bilingual Platform",
-                description: "Complete support for English and Marathi to serve diverse student populations",
-                icon: "🌍",
-                featured: true
-              },
-              {
                 title: "Institute Management",
-                description: "Student-wise and class-wise reports with institute ranking system for schools",
+                description: "Student & class-wise reports with ranking system",
                 icon: "🏫",
-                featured: false
+                color: "amber"
               },
               {
-                title: "Bulk Content Upload",
-                description: "Easy content management with Excel/JSON upload support for multiple languages",
+                title: "Bulk Upload",
+                description: "Excel/JSON content management support",
                 icon: "📤",
-                featured: false
+                color: "cyan"
               },
               {
                 title: "Progress Tracking",
-                description: "Long-term performance monitoring with topper comparison to motivate students",
+                description: "Long-term monitoring with topper comparison",
                 icon: "📈",
-                featured: false
+                color: "pink"
               },
               {
                 title: "Time Management",
-                description: "Countdown timers and flexible time windows for effective exam administration",
+                description: "Countdown timers and flexible scheduling",
                 icon: "⏱️",
-                featured: false
+                color: "indigo"
               }
-            ].map((benefit, index) => (
+            ].map((feature, index) => (
               <motion.div
-                key={benefit.title}
-                className={`bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 ${
-                  benefit.featured ? 'ring-2 ring-blue-500 transform scale-105' : ''
+                key={feature.title}
+                className={`bg-white rounded-xl p-6 shadow-md hover:shadow-lg transition-all duration-300 border-l-4 ${
+                  feature.color === 'amber' ? 'border-l-amber-400 hover:bg-amber-50' :
+                  feature.color === 'cyan' ? 'border-l-cyan-400 hover:bg-cyan-50' :
+                  feature.color === 'pink' ? 'border-l-pink-400 hover:bg-pink-50' :
+                  'border-l-indigo-400 hover:bg-indigo-50'
                 }`}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
                 viewport={{ once: true }}
               >
-                <div className="text-4xl mb-4">{benefit.icon}</div>
-                <h3 className={`text-xl font-semibold mb-3 ${
-                  benefit.featured ? 'text-blue-700' : 'text-slate-900'
-                }`}>{benefit.title}</h3>
-                <p className="text-slate-600">{benefit.description}</p>
-                {benefit.featured && (
-                  <div className="mt-3 text-xs bg-blue-100 text-blue-600 px-3 py-1 rounded-full inline-block">
-                    Core Feature
-                  </div>
-                )}
+                <div className="text-3xl mb-3">{feature.icon}</div>
+                <h4 className="text-lg font-semibold text-slate-900 mb-2">{feature.title}</h4>
+                <p className="text-slate-600 text-sm">{feature.description}</p>
               </motion.div>
             ))}
           </div>
