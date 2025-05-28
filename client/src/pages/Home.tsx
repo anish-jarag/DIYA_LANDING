@@ -478,104 +478,81 @@ export default function Home() {
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-4xl font-bold text-slate-900 mb-4">Comprehensive Exam Features for Students & Institutes</h2>
-            <p className="text-xl text-slate-600">Complete solution for competitive exam preparation with institute management and multilingual support</p>
+            <h2 className="text-4xl font-bold text-slate-900 mb-4">Revolutionary Exam Platform with Unmatched Security</h2>
+            <p className="text-xl text-slate-600">Advanced anti-cheat technology and comprehensive analytics for fair, transparent competitive exam preparation</p>
           </motion.div>
           
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
             {[
               {
-                title: "Shuffling of Questions & Answers",
-                description: "Each student gets a unique version of the test with automatically shuffled questions and answer options",
-                icon: "🔀"
+                title: "Advanced Anti-Cheat System",
+                description: "Real-time tab monitoring with automatic warnings and test termination to ensure complete exam integrity",
+                icon: "🛡️",
+                featured: true
               },
               {
-                title: "Customizable Difficulty Levels",
-                description: "Mix of Easy, Medium, and Hard questions with adjustable percentage distribution",
-                icon: "⚖️"
+                title: "Smart Question Shuffling",
+                description: "Every student receives a unique test version with randomized questions and answer options",
+                icon: "🔀",
+                featured: true
               },
               {
-                title: "Time-Limited Exams",
-                description: "Clear countdown timer with reverse countdown to help students manage time effectively",
-                icon: "⏱️"
+                title: "Comprehensive Analytics",
+                description: "Visual reports with pie charts and bar graphs showing detailed performance insights",
+                icon: "📊",
+                featured: true
               },
               {
-                title: "Anti-Cheating System",
-                description: "Tab switching detection with warnings and automatic test termination for integrity",
-                icon: "🛡️"
+                title: "Bilingual Platform",
+                description: "Complete support for English and Marathi to serve diverse student populations",
+                icon: "🌍",
+                featured: true
               },
               {
-                title: "Time Window Control",
-                description: "Authorities can set specific start and end times for exam availability",
-                icon: "📅"
-              },
-              {
-                title: "Visual Results with Insights",
-                description: "Easy-to-understand pie charts and bar graphs with chapter-wise performance analysis",
-                icon: "📊"
-              },
-              {
-                title: "Detailed Feedback",
-                description: "Shows question distribution by topic and correct answers to identify improvement areas",
-                icon: "📝"
-              },
-              {
-                title: "Question Time Analysis",
-                description: "Records time taken on each question to reveal response patterns and efficiency",
-                icon: "⏰"
-              },
-              {
-                title: "Topper Comparison",
-                description: "Compare results with highest scorer to motivate improvement and identify gaps",
-                icon: "🏆"
-              },
-              {
-                title: "Progress Over Time",
-                description: "Track performance across multiple tests to show growth and improvement trends",
-                icon: "📈"
-              },
-              {
-                title: "Student-Wise & Class-Wise Reports",
-                description: "Schools get access to all student results and can identify topics needing more attention",
-                icon: "📋"
-              },
-              {
-                title: "Institute Ranking System",
-                description: "Institutes are ranked based on student performance to encourage excellence",
-                icon: "🏫"
-              },
-              {
-                title: "Class Performance Comparison",
-                description: "Compare performance across different classes to identify strengths and improvement areas",
-                icon: "📊"
-              },
-              {
-                title: "Multi-Language Support",
-                description: "Complete app and content available in English and Marathi with student choice",
-                icon: "🌍"
+                title: "Institute Management",
+                description: "Student-wise and class-wise reports with institute ranking system for schools",
+                icon: "🏫",
+                featured: false
               },
               {
                 title: "Bulk Content Upload",
-                description: "Upload questions and content in bulk via Excel or JSON in multiple languages",
-                icon: "📤"
+                description: "Easy content management with Excel/JSON upload support for multiple languages",
+                icon: "📤",
+                featured: false
               },
               {
-                title: "Institute-Specific Videos & Notes",
-                description: "Add custom video links and notes for concepts, accessible only to your students",
-                icon: "🎥"
+                title: "Progress Tracking",
+                description: "Long-term performance monitoring with topper comparison to motivate students",
+                icon: "📈",
+                featured: false
+              },
+              {
+                title: "Time Management",
+                description: "Countdown timers and flexible time windows for effective exam administration",
+                icon: "⏱️",
+                featured: false
               }
             ].map((benefit, index) => (
               <motion.div
                 key={benefit.title}
-                className="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-shadow"
+                className={`bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 ${
+                  benefit.featured ? 'ring-2 ring-blue-500 transform scale-105' : ''
+                }`}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
                 viewport={{ once: true }}
               >
                 <div className="text-4xl mb-4">{benefit.icon}</div>
-                <h3 className="text-xl font-semibold text-slate-900 mb-3">{benefit.title}</h3>
+                <h3 className={`text-xl font-semibold mb-3 ${
+                  benefit.featured ? 'text-blue-700' : 'text-slate-900'
+                }`}>{benefit.title}</h3>
                 <p className="text-slate-600">{benefit.description}</p>
+                {benefit.featured && (
+                  <div className="mt-3 text-xs bg-blue-100 text-blue-600 px-3 py-1 rounded-full inline-block">
+                    Core Feature
+                  </div>
+                )}
               </motion.div>
             ))}
           </div>
@@ -589,10 +566,10 @@ export default function Home() {
             viewport={{ once: true }}
           >
             {[
-              { number: "16", label: "Comprehensive Features", color: "blue" },
+              { number: "4", label: "Core Security Features", color: "blue" },
               { number: "1-10", label: "Grade Levels Covered", color: "green" },
               { number: "2", label: "Languages Supported", color: "amber" },
-              { number: "24/7", label: "Platform Availability", color: "slate" }
+              { number: "100%", label: "Fair Testing Guarantee", color: "slate" }
             ].map((stat, index) => (
               <motion.div
                 key={stat.label}
