@@ -140,9 +140,6 @@ export default function Home() {
               <SmoothScrollLink href="#demo" className="text-slate-700 hover:text-blue-600 transition-colors">
                 Demo
               </SmoothScrollLink>
-              <SmoothScrollLink href="#testimonials" className="text-slate-700 hover:text-blue-600 transition-colors">
-                Reviews
-              </SmoothScrollLink>
               <SmoothScrollLink href="#contact" className="text-slate-700 hover:text-blue-600 transition-colors">
                 Contact
               </SmoothScrollLink>
@@ -173,9 +170,6 @@ export default function Home() {
               <SmoothScrollLink href="#demo" className="block text-slate-700 hover:text-blue-600 transition-colors">
                 Demo
               </SmoothScrollLink>
-              <SmoothScrollLink href="#testimonials" className="block text-slate-700 hover:text-blue-600 transition-colors">
-                Reviews
-              </SmoothScrollLink>
               <SmoothScrollLink href="#contact" className="block text-slate-700 hover:text-blue-600 transition-colors">
                 Contact
               </SmoothScrollLink>
@@ -199,7 +193,7 @@ export default function Home() {
             >
               <div className="inline-flex items-center bg-white/20 rounded-full px-4 py-2 mb-6">
                 <Award className="text-amber-400 mr-2" size={16} />
-                <span className="text-sm font-medium">Government Approved • COPPA Compliant</span>
+                <span className="text-sm font-medium">Innovative Learning • COPPA Compliant</span>
               </div>
               
               <h1 className="text-4xl lg:text-6xl font-bold leading-tight mb-6">
@@ -227,7 +221,7 @@ export default function Home() {
                 </div>
                 <div className="flex items-center">
                   <ShieldCheck className="text-amber-400 mr-2" size={16} />
-                  <span>FERPA Compliant</span>
+                  <span>Privacy Protected</span>
                 </div>
               </div>
             </motion.div>
@@ -274,13 +268,13 @@ export default function Home() {
       <section className="bg-white py-12">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-8">
-            <p className="text-slate-600">Trusted by over 50,000 schools nationwide</p>
+            <p className="text-slate-600">Built for modern education with privacy and security in mind</p>
           </div>
           
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 items-center opacity-60">
             <div className="text-center">
-              <University className="mx-auto text-3xl text-slate-400 mb-2" />
-              <p className="text-sm font-medium text-slate-600">Dept. of Education</p>
+              <Brain className="mx-auto text-3xl text-slate-400 mb-2" />
+              <p className="text-sm font-medium text-slate-600">AI-Powered Learning</p>
             </div>
             <div className="text-center">
               <Award className="mx-auto text-3xl text-slate-400 mb-2" />
@@ -288,11 +282,11 @@ export default function Home() {
             </div>
             <div className="text-center">
               <ShieldCheck className="mx-auto text-3xl text-slate-400 mb-2" />
-              <p className="text-sm font-medium text-slate-600">FERPA Compliant</p>
+              <p className="text-sm font-medium text-slate-600">Privacy Protected</p>
             </div>
             <div className="text-center">
-              <Star className="mx-auto text-3xl text-slate-400 mb-2" />
-              <p className="text-sm font-medium text-slate-600">EdTech Award 2024</p>
+              <Globe className="mx-auto text-3xl text-slate-400 mb-2" />
+              <p className="text-sm font-medium text-slate-600">Multilingual Support</p>
             </div>
           </div>
         </div>
@@ -473,8 +467,8 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Testimonials Section */}
-      <section id="testimonials" className="py-20 bg-slate-50">
+      {/* Platform Benefits Section */}
+      <section id="demo" className="py-20 bg-slate-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div 
             className="text-center mb-16"
@@ -483,25 +477,71 @@ export default function Home() {
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-4xl font-bold text-slate-900 mb-4">What Our Community Says</h2>
-            <p className="text-xl text-slate-600">Trusted by students, teachers, and parents nationwide</p>
+            <h2 className="text-4xl font-bold text-slate-900 mb-4">Why Choose DIYA for Competitive Exam Preparation?</h2>
+            <p className="text-xl text-slate-600">Designed specifically to prepare students from 1st to 10th grade for competitive exams</p>
           </motion.div>
           
-          <TestimonialCarousel />
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+            {[
+              {
+                title: "Early Exposure",
+                description: "Introduce competitive exam patterns from grade 1 to build confidence",
+                icon: "🎯"
+              },
+              {
+                title: "Age-Appropriate Content",
+                description: "Curriculum designed specifically for each grade level's learning capacity",
+                icon: "📚"
+              },
+              {
+                title: "Progressive Difficulty",
+                description: "Gradually increasing complexity to ensure steady skill development",
+                icon: "📈"
+              },
+              {
+                title: "Interactive Learning",
+                description: "Engaging quizzes and activities that make learning fun and effective",
+                icon: "🎮"
+              },
+              {
+                title: "Performance Tracking",
+                description: "Detailed analytics to monitor progress and identify improvement areas",
+                icon: "📊"
+              },
+              {
+                title: "Bilingual Support",
+                description: "Available in multiple languages to accommodate diverse learners",
+                icon: "🌐"
+              }
+            ].map((benefit, index) => (
+              <motion.div
+                key={benefit.title}
+                className="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-shadow"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
+                viewport={{ once: true }}
+              >
+                <div className="text-4xl mb-4">{benefit.icon}</div>
+                <h3 className="text-xl font-semibold text-slate-900 mb-3">{benefit.title}</h3>
+                <p className="text-slate-600">{benefit.description}</p>
+              </motion.div>
+            ))}
+          </div>
 
-          {/* Stats Section */}
+          {/* Platform Statistics */}
           <motion.div 
-            className="grid md:grid-cols-4 gap-8 mt-16 text-center"
+            className="grid md:grid-cols-4 gap-8 text-center"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
           >
             {[
-              { number: "50,000+", label: "Schools Using Platform", color: "blue" },
-              { number: "2.5M+", label: "Students Engaged", color: "green" },
-              { number: "98%", label: "Teacher Satisfaction", color: "amber" },
-              { number: "45%", label: "Improvement in Scores", color: "slate" }
+              { number: "15+", label: "Language Options", color: "blue" },
+              { number: "1-10", label: "Grade Levels Covered", color: "green" },
+              { number: "AI", label: "Powered Learning", color: "amber" },
+              { number: "24/7", label: "Platform Availability", color: "slate" }
             ].map((stat, index) => (
               <motion.div
                 key={stat.label}
