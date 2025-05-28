@@ -478,8 +478,8 @@ export default function Home() {
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-4xl font-bold text-slate-900 mb-4">Why Choose DIYA for Competitive Exam Preparation?</h2>
-            <p className="text-xl text-slate-600">Designed specifically to prepare students from 1st to 10th grade for competitive exams</p>
+            <h2 className="text-4xl font-bold text-slate-900 mb-4">Comprehensive Exam Features for Students & Institutes</h2>
+            <p className="text-xl text-slate-600">Complete solution for competitive exam preparation with institute management and multilingual support</p>
           </motion.div>
           
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
@@ -533,6 +533,36 @@ export default function Home() {
                 title: "Progress Over Time",
                 description: "Track performance across multiple tests to show growth and improvement trends",
                 icon: "📈"
+              },
+              {
+                title: "Student-Wise & Class-Wise Reports",
+                description: "Schools get access to all student results and can identify topics needing more attention",
+                icon: "📋"
+              },
+              {
+                title: "Institute Ranking System",
+                description: "Institutes are ranked based on student performance to encourage excellence",
+                icon: "🏫"
+              },
+              {
+                title: "Class Performance Comparison",
+                description: "Compare performance across different classes to identify strengths and improvement areas",
+                icon: "📊"
+              },
+              {
+                title: "Multi-Language Support",
+                description: "Complete app and content available in English and Marathi with student choice",
+                icon: "🌍"
+              },
+              {
+                title: "Bulk Content Upload",
+                description: "Upload questions and content in bulk via Excel or JSON in multiple languages",
+                icon: "📤"
+              },
+              {
+                title: "Institute-Specific Videos & Notes",
+                description: "Add custom video links and notes for concepts, accessible only to your students",
+                icon: "🎥"
               }
             ].map((benefit, index) => (
               <motion.div
@@ -559,9 +589,9 @@ export default function Home() {
             viewport={{ once: true }}
           >
             {[
-              { number: "15+", label: "Language Options", color: "blue" },
+              { number: "16", label: "Comprehensive Features", color: "blue" },
               { number: "1-10", label: "Grade Levels Covered", color: "green" },
-              { number: "AI", label: "Powered Learning", color: "amber" },
+              { number: "2", label: "Languages Supported", color: "amber" },
               { number: "24/7", label: "Platform Availability", color: "slate" }
             ].map((stat, index) => (
               <motion.div
