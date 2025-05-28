@@ -289,21 +289,18 @@ export default function Home() {
                 <h3 className="text-2xl font-bold text-blue-800">Student Benefits</h3>
               </div>
               <ul className="space-y-4 text-blue-700">
+
                 <li className="flex items-start">
                   <Check className="text-blue-600 mr-3 mt-1 flex-shrink-0" size={16} />
-                  <span><strong>Fair Testing Environment:</strong> Unique question sets ensure every student has an equal opportunity to demonstrate their knowledge</span>
+                  <span>Instant Performance Insights: Detailed analytics help identify strengths and improvement areas immediately</span>
                 </li>
                 <li className="flex items-start">
                   <Check className="text-blue-600 mr-3 mt-1 flex-shrink-0" size={16} />
-                  <span><strong>Instant Performance Insights:</strong> Detailed analytics help identify strengths and improvement areas immediately</span>
+                  <span>Language Comfort: Choose between English and Marathi for comfortable learning experience</span>
                 </li>
                 <li className="flex items-start">
                   <Check className="text-blue-600 mr-3 mt-1 flex-shrink-0" size={16} />
-                  <span><strong>Language Comfort:</strong> Choose between English and Marathi for comfortable learning experience</span>
-                </li>
-                <li className="flex items-start">
-                  <Check className="text-blue-600 mr-3 mt-1 flex-shrink-0" size={16} />
-                  <span><strong>Progress Motivation:</strong> Track improvement over time and compare with top performers</span>
+                  <span>Progress Motivation: Track improvement over time and compare with top performers</span>
                 </li>
               </ul>
             </motion.div>
