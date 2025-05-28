@@ -366,31 +366,31 @@ export default function Home() {
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {[
               {
-                icon: Shield,
-                title: "Anti-Cheat System",
-                description: "Advanced security measures with tab monitoring and automatic warnings to ensure exam integrity.",
-                features: ["Tab switching detection", "Automatic warnings", "Test termination protection"],
+                icon: Brain,
+                title: "Adaptive Learning",
+                description: "AI-powered algorithms adjust difficulty and pace in real-time based on student performance and learning patterns.",
+                features: ["Personalized learning paths", "Real-time difficulty adjustment", "Learning style analysis"],
                 color: "blue"
               },
               {
-                icon: Brain,
-                title: "Question Shuffling",
-                description: "Each student gets a unique version with shuffled questions and answer options for fairness.",
-                features: ["Randomized question order", "Shuffled answer options", "Unique test versions"],
+                icon: Globe,
+                title: "Bilingual Support",
+                description: "Comprehensive multilingual platform supporting seamless transitions between languages for diverse learners.",
+                features: ["English & Marathi options", "Cultural context integration", "Native language comfort"],
                 color: "green"
               },
               {
-                icon: BarChart3,
-                title: "Visual Results",
-                description: "Comprehensive analytics with pie charts, bar graphs, and detailed performance insights.",
-                features: ["Chapter-wise analysis", "Topic-wise breakdown", "Performance tracking"],
+                icon: Shield,
+                title: "Anti-Cheat Protection",
+                description: "Advanced security measures ensure academic integrity while maintaining a smooth learning experience.",
+                features: ["Browser lockdown mode", "Behavioral analytics", "Plagiarism detection"],
                 color: "amber"
               },
               {
-                icon: Timer,
-                title: "Time Management",
-                description: "Reverse countdown timers and time window controls for effective exam management.",
-                features: ["Countdown timer", "Time window setting", "Question time analysis"],
+                icon: BarChart3,
+                title: "Smart Reports",
+                description: "Comprehensive analytics and insights for teachers, parents, and administrators to track progress.",
+                features: ["Real-time dashboards", "Predictive analytics", "Custom report builder"],
                 color: "slate"
               }
             ].map((feature, index) => (
@@ -537,27 +537,27 @@ export default function Home() {
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
             {[
               {
-                title: "Advanced Anti-Cheat System",
-                description: "Real-time tab monitoring with automatic warnings and test termination to ensure complete exam integrity",
-                icon: "🛡️",
-                featured: true
-              },
-              {
                 title: "Smart Question Shuffling",
                 description: "Every student receives a unique test version with randomized questions and answer options",
                 icon: "🔀",
                 featured: true
               },
               {
-                title: "Comprehensive Analytics",
-                description: "Visual reports with pie charts and bar graphs showing detailed performance insights",
-                icon: "📊",
+                title: "Time-Limited Exams",
+                description: "Clear countdown timer with reverse countdown to help students manage time effectively",
+                icon: "⏱️",
                 featured: true
               },
               {
-                title: "Bilingual Platform",
-                description: "Complete support for English and Marathi to serve diverse student populations",
-                icon: "🌍",
+                title: "Customizable Difficulty",
+                description: "Mix of Easy, Medium, and Hard questions with adjustable percentage distribution",
+                icon: "⚖️",
+                featured: true
+              },
+              {
+                title: "Time Window Control",
+                description: "Authorities can set specific start and end times for exam availability",
+                icon: "📅",
                 featured: true
               },
               {
