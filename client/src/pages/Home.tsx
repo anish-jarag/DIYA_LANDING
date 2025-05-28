@@ -24,7 +24,8 @@ import {
   Facebook,
   Twitter,
   Linkedin,
-  Youtube
+  Youtube,
+  Timer
 } from 'lucide-react';
 
 import { Button } from '@/components/ui/button';
@@ -193,7 +194,7 @@ export default function Home() {
             >
               <div className="inline-flex items-center bg-white/20 rounded-full px-4 py-2 mb-6">
                 <Award className="text-amber-400 mr-2" size={16} />
-                <span className="text-sm font-medium">Innovative Learning • COPPA Compliant</span>
+                <span className="text-sm font-medium">Digital India's Young Aspirants</span>
               </div>
               
               <h1 className="text-4xl lg:text-6xl font-bold leading-tight mb-6">
@@ -201,7 +202,7 @@ export default function Home() {
               </h1>
               
               <p className="text-xl text-blue-100 mb-8 leading-relaxed">
-                Revolutionary educational technology platform with AI-powered adaptive learning, comprehensive bilingual support, and advanced anti-cheat protection for K-12 students.
+                Comprehensive competitive exam preparation platform designed for students from 1st to 10th grade with advanced anti-cheat protection and detailed performance analytics.
               </p>
               
               <div className="flex flex-col sm:flex-row gap-4">
@@ -278,7 +279,7 @@ export default function Home() {
             </div>
             <div className="text-center">
               <Award className="mx-auto text-3xl text-slate-400 mb-2" />
-              <p className="text-sm font-medium text-slate-600">COPPA Certified</p>
+              <p className="text-sm font-medium text-slate-600">Secure Testing</p>
             </div>
             <div className="text-center">
               <ShieldCheck className="mx-auto text-3xl text-slate-400 mb-2" />
@@ -313,31 +314,31 @@ export default function Home() {
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {[
               {
-                icon: Brain,
-                title: "Adaptive Learning",
-                description: "AI-powered algorithms adjust difficulty and pace in real-time based on student performance and learning patterns.",
-                features: ["Personalized learning paths", "Real-time difficulty adjustment", "Learning style analysis"],
+                icon: Shield,
+                title: "Anti-Cheat System",
+                description: "Advanced security measures with tab monitoring and automatic warnings to ensure exam integrity.",
+                features: ["Tab switching detection", "Automatic warnings", "Test termination protection"],
                 color: "blue"
               },
               {
-                icon: Globe,
-                title: "Bilingual Support",
-                description: "Comprehensive multilingual platform supporting seamless transitions between languages for diverse learners.",
-                features: ["15+ language options", "Cultural context integration", "Native pronunciation guides"],
+                icon: Brain,
+                title: "Question Shuffling",
+                description: "Each student gets a unique version with shuffled questions and answer options for fairness.",
+                features: ["Randomized question order", "Shuffled answer options", "Unique test versions"],
                 color: "green"
               },
               {
-                icon: Shield,
-                title: "Anti-Cheat Protection",
-                description: "Advanced security measures ensure academic integrity while maintaining a smooth learning experience.",
-                features: ["Browser lockdown mode", "Behavioral analytics", "Plagiarism detection"],
+                icon: BarChart3,
+                title: "Visual Results",
+                description: "Comprehensive analytics with pie charts, bar graphs, and detailed performance insights.",
+                features: ["Chapter-wise analysis", "Topic-wise breakdown", "Performance tracking"],
                 color: "amber"
               },
               {
-                icon: BarChart3,
-                title: "Smart Reports",
-                description: "Comprehensive analytics and insights for teachers, parents, and administrators to track progress.",
-                features: ["Real-time dashboards", "Predictive analytics", "Custom report builder"],
+                icon: Timer,
+                title: "Time Management",
+                description: "Reverse countdown timers and time window controls for effective exam management.",
+                features: ["Countdown timer", "Time window setting", "Question time analysis"],
                 color: "slate"
               }
             ].map((feature, index) => (
@@ -484,34 +485,54 @@ export default function Home() {
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
             {[
               {
-                title: "Early Exposure",
-                description: "Introduce competitive exam patterns from grade 1 to build confidence",
-                icon: "🎯"
+                title: "Shuffling of Questions & Answers",
+                description: "Each student gets a unique version of the test with automatically shuffled questions and answer options",
+                icon: "🔀"
               },
               {
-                title: "Age-Appropriate Content",
-                description: "Curriculum designed specifically for each grade level's learning capacity",
-                icon: "📚"
+                title: "Customizable Difficulty Levels",
+                description: "Mix of Easy, Medium, and Hard questions with adjustable percentage distribution",
+                icon: "⚖️"
               },
               {
-                title: "Progressive Difficulty",
-                description: "Gradually increasing complexity to ensure steady skill development",
-                icon: "📈"
+                title: "Time-Limited Exams",
+                description: "Clear countdown timer with reverse countdown to help students manage time effectively",
+                icon: "⏱️"
               },
               {
-                title: "Interactive Learning",
-                description: "Engaging quizzes and activities that make learning fun and effective",
-                icon: "🎮"
+                title: "Anti-Cheating System",
+                description: "Tab switching detection with warnings and automatic test termination for integrity",
+                icon: "🛡️"
               },
               {
-                title: "Performance Tracking",
-                description: "Detailed analytics to monitor progress and identify improvement areas",
+                title: "Time Window Control",
+                description: "Authorities can set specific start and end times for exam availability",
+                icon: "📅"
+              },
+              {
+                title: "Visual Results with Insights",
+                description: "Easy-to-understand pie charts and bar graphs with chapter-wise performance analysis",
                 icon: "📊"
               },
               {
-                title: "Bilingual Support",
-                description: "Available in multiple languages to accommodate diverse learners",
-                icon: "🌐"
+                title: "Detailed Feedback",
+                description: "Shows question distribution by topic and correct answers to identify improvement areas",
+                icon: "📝"
+              },
+              {
+                title: "Question Time Analysis",
+                description: "Records time taken on each question to reveal response patterns and efficiency",
+                icon: "⏰"
+              },
+              {
+                title: "Topper Comparison",
+                description: "Compare results with highest scorer to motivate improvement and identify gaps",
+                icon: "🏆"
+              },
+              {
+                title: "Progress Over Time",
+                description: "Track performance across multiple tests to show growth and improvement trends",
+                icon: "📈"
               }
             ].map((benefit, index) => (
               <motion.div
